@@ -316,7 +316,8 @@ SLIDES = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta na
 
 <section class="dark"><div class="eyebrow" style="color:#d5dde1">MGT 409 · Final project · Katie Bays</div>
 <h1>Data Centers Decoded</h1><p style="font-family:Merriweather,serif;font-weight:300;font-size:26px">See how a shock in one corner of the AI complex
-reaches every company exposed to it: sites, policy and the deals that finance them.</p></section>
+reaches every company exposed to it: sites, policy and the deals that finance them.</p>
+<p style="font-size:18px;color:#d5dde1;margin-top:28px"><a href="https://github.com/katiebays/MGT409FINAL" style="color:#eed394">github.com/katiebays/MGT409FINAL</a></p></section>
 
 <section><div class="eyebrow">The problem</div><h2>Project-finance investors can't see their real AI exposure</h2>
 <ul><li>Lenders and syndicators now fund data centers, GPU facilities and lease/offtake-backed debt</li>
