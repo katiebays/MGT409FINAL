@@ -1,0 +1,6 @@
+# Licensed firm data: never commit. Ship a small sample in data/sample/ instead.
+data/raw/
+.env
+.venv/
+__pycache__/
+logs/
