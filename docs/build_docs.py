@@ -156,7 +156,7 @@ alongside state bills, grid-queue pauses and cost-allocation rules. The midterm 
 lab, neocloud and lender whose deals reference that company.</li></ul>
 <p><b>How people cope today.</b> Analysts stitch together a site tracker, a bill tracker, company filings and deal-data terminals in spreadsheets. Each source
 is organized around its own object (a site, a bill, a company), so the cross-cutting question "a Texas moratorium hits which tenants, which lenders,
-which chipmaker backstops?" requires manual joins that take days and go stale within a week.</p>
+which chipmaker backstops?" requires manual joins that consume significant analyst time and go stale as soon as a new deal or ordinance lands.</p>
 <p><b>What it costs them.</b> Missed concentration (a lender to a neocloud whose pipeline is 93% in one state), mispriced risk (treating a $300B "up to"
 headline as a firm commitment), and slow reaction when policy moves.</p>
 
@@ -277,8 +277,14 @@ record, and <b>did not follow it</b> (test result: followed_injection = {inj['fo
 <ul><li>A Texas construction freeze delays <b>93%</b> of Crusoe's pipeline (7,273 MW) and <b>51%</b> of CoreWeave's (2,324 MW); CoreWeave's Lancaster County, PA campus also sits near an active township moratorium.</li>
 <li>OpenAI owns little in Texas but its largest counterparty, Oracle, is 53% of its weighted deal book; four Ohio bills sit on its 13,000 MW there.</li>
 <li>Alphabet's Kentucky exposure through Anthropic ($130.0B) dwarfs its Texas exposure ($3.9B), the opposite of what a site map alone suggests.</li></ul>
-<p><b>Before vs. after.</b> <span class="todo">Add: time a client or colleague spends today assembling one company's exposure view (e.g. "2–3 days across
-tracker, filings and terminal"), and a quote from a project-finance client who saw the demo.</span></p>
+<p><b>Real user reaction.</b> Before building this, we showed a project-finance investor a far less sophisticated cut of the same
+information: a table of CoreWeave's projects placed next to a separate list of policy items. This investor has underwritten a number of
+investments in these companies. Seeing the two side by side, they told us:</p>
+<div class="callout" style="font-family:Merriweather,serif;font-weight:300;font-size:19px;line-height:1.5">
+"I really feel like we're sitting on all of the dynamite when you look at it this way."
+<div class="small muted" style="font-family:Inter,sans-serif;margin-top:6px">Project-finance investor with underwritten exposure to these companies, reacting to a static projects-plus-policy table</div></div>
+<p>That reaction came from a static, unjoined view. Data Centers Decoded does the join automatically: it matches each project to the moratoria
+and bills that cover it, carries the exposure through to tenants, lenders and investors, and scores how much to trust each link.</p>
 
 <h2>7. Limits and next steps</h2>
 <ul><li><b>Deal parsing is regex-based.</b> Dollar amounts and firmness come from pattern matching; money direction (who pays whom) is not modeled. Next: the Deal
@@ -316,7 +322,7 @@ reaches every company exposed to it: sites, policy and the deals that finance th
 <ul><li>Lenders and syndicators now fund data centers, GPU facilities and lease/offtake-backed debt</li>
 <li>Deals are interlocking and often circular: chipmakers fund labs and neoclouds that buy their chips</li>
 <li>Shocks are multiplying: <b>715 local moratoria in effect</b>, state grid pauses, and governance shocks at hub companies</li>
-<li>Today: site tracker + bill tracker + filings + terminal, joined by hand in spreadsheets; days of work, stale in a week</li></ul></section>
+<li>Today: site tracker + bill tracker + filings + terminal, joined by hand in spreadsheets; slow, and stale as soon as policy moves</li></ul></section>
 
 <section><div class="eyebrow">What is new</div><h2>One graph across siting, policy and financing</h2>
 <table><tr><th>Tool</th><th>Has</th><th>Missing</th></tr>
@@ -356,7 +362,10 @@ reaches every company exposed to it: sites, policy and the deals that finance th
 <img src="{img('08_safety_refusal.png', 1000)}" style="width:100%"></div></section>
 
 <section class="dark"><div class="eyebrow" style="color:#d5dde1">Impact · Next</div><h2>See around corners, every week</h2>
-<ul><li>Answers in ~{med('seconds'):.0f} seconds what took days of manual joins</li>
+<p style="font-family:Merriweather,serif;font-weight:300;font-size:26px;line-height:1.4;margin:0 0 18px">"I really feel like we're sitting on
+all of the dynamite when you look at it this way."<br><span style="font-family:Inter,sans-serif;font-size:15px;color:#d5dde1">Project-finance investor,
+shown a simple CoreWeave projects + policy table</span></p>
+<ul><li>Answers in ~{med('seconds'):.0f} seconds, with the path from shock to exposure shown</li>
 <li>Crusoe: 93% of pipeline in Texas · CoreWeave: 51% · Alphabet: $130B via Kentucky</li>
 <li>Next: Policy Scout (weekly LegiScan + news), Deal Extraction agent, counterparty-shock scenarios (e.g. NVIDIA leadership)</li></ul></section>
 
